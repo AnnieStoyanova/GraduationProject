@@ -13,6 +13,6 @@ import lombok.Setter;
 @Table(name = "departmentInfo")
 public class DepartmentInfo extends BaseEntity {
 
-    private String applicationId;
+    private Long applicationId;
     private Boolean approved;
 }

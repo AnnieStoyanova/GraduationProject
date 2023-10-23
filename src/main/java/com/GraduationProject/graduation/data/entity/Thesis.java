@@ -19,5 +19,6 @@ public class Thesis extends BaseEntity {
     private String text;
     private Date uploadDate;
     private Student student;
+    private Teacher teacher;
     private Long applicationId; // not sure if the whole object is better
 }

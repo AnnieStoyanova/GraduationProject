@@ -20,7 +20,6 @@ public class ThesisPresentation extends BaseEntity {
     private Long thesisId; // not sure???
     private Long applicationId;
     private Teacher evaluatingTeacher;
-    private Double grade;
     private Date presentationDate;
 }
 
