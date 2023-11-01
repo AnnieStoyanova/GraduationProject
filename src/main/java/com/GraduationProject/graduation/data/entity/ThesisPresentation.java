@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,11 +16,9 @@ import java.util.Date;
 @Table(name = "thesisPresentation")
 public class ThesisPresentation extends BaseEntity {
 
-    private Student student;
-    private Teacher teacher;
-    private Long thesisId; // not sure???
-    private Long applicationId;
-    private Teacher evaluatingTeacher;
+    private List<Thesis> thesisList;
+    private List<Teacher> commission;
     private Date presentationDate;
+
 }
 

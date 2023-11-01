@@ -15,8 +15,9 @@ import java.util.Date;
 @Table(name = "recension")
 public class Recension extends BaseEntity {
 
-    private Long thesisId;
+    private Thesis thesis;
     private Date uploadDate;
     private String text;
     private Boolean decision;
+    private Teacher evaluatingTeacher;
 }

@@ -17,11 +17,11 @@ public class ApplicationDocument extends BaseEntity {
 
     private String theme;
     private String purpose;
-    private List<String> tasks;  // TODO: ask if Task object is better?
-    private List<String> technologies; // TODO: same as above
+    private List<String> tasks;
+    private List<String> technologies;
     private Student student;
     private Teacher teacherLeader;
-
+    private Boolean isApproved;
 
 
 }
