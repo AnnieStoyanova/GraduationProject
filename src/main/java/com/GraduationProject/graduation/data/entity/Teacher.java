@@ -19,4 +19,6 @@ public class Teacher extends BaseEntity {
 
     private Position position;
 
+    private Double salary;
+
 }

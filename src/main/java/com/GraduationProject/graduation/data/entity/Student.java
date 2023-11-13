@@ -14,6 +14,9 @@ import lombok.Setter;
 public class Student extends BaseEntity {
 
     private String firstName;
-
     private String lastName;
+    private Integer creditsToTake;
+    private Boolean isTaxPaid;
+    private String levelOfStudiedDegree;
+    private Integer graduationClass;
 }
