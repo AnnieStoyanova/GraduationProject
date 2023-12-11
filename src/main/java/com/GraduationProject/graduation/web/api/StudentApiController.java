@@ -14,11 +14,6 @@ import java.util.List;
 public class StudentApiController {
 
     private final StudentService studentService;
-
-    public StudentApiController(StudentService studentService) {
-        this.studentService = studentService;
-    }
-
     List<StudentDto> getStudents() {
         return studentService.getStudents();
     }

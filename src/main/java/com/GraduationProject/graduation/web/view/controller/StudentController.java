@@ -1,13 +1,16 @@
 package com.GraduationProject.graduation.web.view.controller;
 
-import ch.qos.logback.core.model.Model;
+import org.springframework.ui.Model;
 import com.GraduationProject.graduation.dto.CreateStudentDto;
 import com.GraduationProject.graduation.dto.StudentDto;
+import com.GraduationProject.graduation.dto.UpdateStudentDTO;
 import com.GraduationProject.graduation.services.StudentService;
 import com.GraduationProject.graduation.web.view.model.CreateStudentViewModel;
 import com.GraduationProject.graduation.web.view.model.StudentViewModel;
 import com.GraduationProject.graduation.web.view.model.UpdateStudentViewModel;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -64,7 +67,7 @@ public class StudentController {
         if (bindingResult.hasErrors()) {
             return "/students/edit-student";
         }
-        studentService.updateStudent(id, modelMapper.map(student, UpdateStudentDto.class));
+        studentService.updateStudent(id, modelMapper.map(student, UpdateStudentDTO.class));
         return "redirect:/students";
     }
 
