@@ -1,6 +1,7 @@
 package com.GraduationProject.graduation.data.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,9 @@ public class ApplicationDocument extends BaseEntity {
     private String purpose;
     private List<String> tasks;
     private List<String> technologies;
+    @OneToOne
     private Student student;
+    @OneToOne
     private Teacher teacherLeader;
     private Boolean isApproved;
 

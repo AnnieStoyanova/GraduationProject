@@ -1,6 +1,7 @@
 package com.GraduationProject.graduation.data.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,5 +20,6 @@ public class Recension extends BaseEntity {
     private Date uploadDate;
     private String text;
     private Boolean decision;
+    @OneToOne
     private Teacher evaluatingTeacher;
 }

@@ -1,6 +1,7 @@
 package com.GraduationProject.graduation.data.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,5 +19,6 @@ public class Thesis extends BaseEntity {
     private String title;
     private String text;
     private Date uploadDate;
+    @OneToOne
     private ApplicationDocument applicationDocument;
 }

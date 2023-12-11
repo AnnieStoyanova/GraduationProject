@@ -1,7 +1,6 @@
 package com.GraduationProject.graduation.data.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +16,7 @@ public class Teacher extends BaseEntity {
 
     private String lastName;
 
+    @Enumerated(EnumType.STRING)
     private Position position;
 
     private Double salary;
