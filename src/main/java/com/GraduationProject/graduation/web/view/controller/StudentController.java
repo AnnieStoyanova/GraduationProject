@@ -45,8 +45,8 @@ public class StudentController {
     }
 
     @PostMapping("/create")
-    public String createSchool(@Valid @ModelAttribute("school") CreateStudentViewModel student,
-                               BindingResult bindingResult) {
+    public String createStudent(@Valid @ModelAttribute("student") CreateStudentViewModel student,
+                                BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "/students/create-student";
         }
@@ -56,9 +56,9 @@ public class StudentController {
 
     @GetMapping("/edit-student/{id}")
     public String showEditStudentForm(Model model, @PathVariable Long id) {
-        model.addAttribute("school", modelMapper.map(studentService.getStudentById(id),
+        model.addAttribute("student", modelMapper.map(studentService.getStudentById(id),
                 UpdateStudentViewModel.class));
-        return "/schools/edit-school";
+        return "/students/edit-student";
     }
 
     @PostMapping("/update/{id}")

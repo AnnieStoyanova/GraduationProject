@@ -22,6 +22,8 @@ public class ThesisPresentation extends BaseEntity {
     @OneToMany
     private List<Teacher> commission;
     private Date presentationDate;
+    @OneToMany
+    private List<PresentationInfo> results;
 
 }
 
