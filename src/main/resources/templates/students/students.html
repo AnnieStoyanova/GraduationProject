@@ -8,6 +8,7 @@
     <h3 th:unless="${students} and ${students.size()}">There are no students!</h3>
     <table th:if="${students.size()>0}" class="table table-hover">
         <th>Id</th>
+        <th>Faculty Number</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Graduation Class</th>
@@ -15,11 +16,12 @@
         <th>Delete</th>
         <tr th:each="student : ${students}">
             <td th:text="${student.id}"></td>
+            <td th:text="${student.facultyNumber}"></td>
             <td th:text="${student.firstName}"></td>
             <td th:text="${student.lastName}"></td>
             <td th:text="${student.graduationClass}"></td>
-<!--            <td><a class="btn btn-info" th:href="@{'/students/edit-student/'+${student.id}}">Edit</a></td>-->
-<!--            <td><a class="btn btn-danger" th:href="@{'/schools/delete/'+${school.id}}">Delete</a></td>-->
+            <td><a class="btn btn-info" th:href="@{'/students/edit-student/'+${student.id}}">Edit</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/students/delete/'+${student.id}}">Delete</a></td>
         </tr>
     </table>
 </div>

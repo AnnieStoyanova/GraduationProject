@@ -31,12 +31,6 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public StudentDto getStudentById() {
-        return null;
-    }
-
-
-    @Override
     public StudentDto getStudentById(long id) {
         return modelMapper.map(studentRepository.findById(id), StudentDto.class);
     }
@@ -50,7 +44,17 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public UpdateStudentDTO updateStudent(long id, UpdateStudentDTO updateStudentDto) {
-        return null;
+        Student student = modelMapper.map(getStudentById(id), Student.class);
+        student.setFirstName(updateStudentDto.getFirstName());
+        student.setLastName(updateStudentDto.getLastName());
+        student.setFacultyNumber(updateStudentDto.getFacultyNumber());
+        student.setGraduationClass(updateStudentDto.getGraduationClass());
+        return modelMapper.map(studentRepository.save(student), UpdateStudentDTO.class);
+    }
+
+    @Override
+    public void deleteStudent(long id) {
+        studentRepository.deleteById(id);
     }
 
 

@@ -15,15 +15,15 @@ public class UpdateStudentViewModel {
 
 
     @NotBlank
-    @Size(min = 5, max = 20, message="Min 5, Max 20")
+    @Size(min = 4, max = 20, message="Min 5, Max 20")
     private String firstName;
 
     @NotBlank
     @Size(min = 5, max = 20, message="Min 5, Max 20")
     private String lastName;
 
-    private Integer creditsToTake;
     private Integer graduationClass;
 
+    private String facultyNumber;
 
 }

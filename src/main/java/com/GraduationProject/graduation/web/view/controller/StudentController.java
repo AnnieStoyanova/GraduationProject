@@ -71,6 +71,12 @@ public class StudentController {
         return "redirect:/students";
     }
 
+    @GetMapping("/delete/{id}")
+    public String processProgramForm(@PathVariable long id) {
+        studentService.deleteStudent(id);
+        return "redirect:/students";
+    }
+
 
     private StudentViewModel convertToStudentViewModel(StudentDto studentDto) {
         return modelMapper.map(studentDto, StudentViewModel.class);

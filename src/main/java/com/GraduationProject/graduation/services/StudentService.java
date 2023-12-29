@@ -9,11 +9,11 @@ import java.util.List;
 public interface StudentService {
     List<StudentDto> getStudents();
 
-    StudentDto getStudentById();
-
     StudentDto getStudentById(long id);
 
     CreateStudentDto createStudent(CreateStudentDto createStudentDto);
 
     UpdateStudentDTO updateStudent(long id, UpdateStudentDTO updateStudentDto );
+
+    void deleteStudent(long id);
 }

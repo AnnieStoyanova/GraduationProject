@@ -12,4 +12,5 @@ import lombok.ToString;
 public class CreateStudentDto {
     private String firstName;
     private String lastName;
+    private String facultyNumber;
 }

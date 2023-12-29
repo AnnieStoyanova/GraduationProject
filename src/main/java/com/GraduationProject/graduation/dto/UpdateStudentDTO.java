@@ -11,7 +11,7 @@ import lombok.*;
 public class UpdateStudentDTO {
     private String firstName;
     private String lastName;
-    private Integer creditsToTake;
-    private Boolean isTaxPaid;
+    private String facultyNumber;
+    private Integer graduationClass;
 
 }
