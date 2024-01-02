@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+<header th:replace="fragments :: header"></header>
+<h4 th:if="${applications.size()>0}" th:text="'applications: ' + ${applications.size()}"> </h4>
+<div class=" col-6">
+    <h3 th:unless="${applications} and ${applications.size()}">There are no applications!</h3>
+    <table th:if="${applications.size()>0}" class="table table-hover">
+        <th>Id</th>
+        <th>Theme</th>
+        <th>Purpose</th>
+        <th>Tasks</th>
+        <th>Technologies</th>
+        <th>Student</th>
+        <th>Teacher</th>
+        <th>Approved</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <tr th:each="applicationDocument : ${applications}">
+            <td th:text="${applicationDocument.id}"></td>
+            <td th:text="${applicationDocument.theme}"></td>
+            <td th:text="${applicationDocument.purpose}"></td>
+            <td th:text="${applicationDocument.tasks}"></td>
+            <td th:text="${applicationDocument.technologies}"></td>
+            <td th:text="${applicationDocument.student}"></td>
+            <td th:text="${applicationDocument.teacherLeader}"></td>
+            <td th:text="${applicationDocument.isApproved}"></td>
+<!--            <td><a class="btn btn-info" th:href="@{'/applications/edit-application/'+${application.id}}">Edit</a></td>-->
+<!--            <td><a class="btn btn-danger" th:href="@{'/applications/delete/'+${application.id}}">Delete</a></td>-->
+        </tr>
+    </table>
+</div>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

@@ -1,16 +1,18 @@
 package com.GraduationProject.graduation.web.view.model;
+
+import com.GraduationProject.graduation.data.entity.Position;
 import lombok.*;
 
 @EqualsAndHashCode
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class StudentViewModel {
-    private long id;
-    private String firstName;
-    private String lastName;
-    private String facultyNumber;
-    private Integer graduationClass;
+@NoArgsConstructor
+public class CreateTeacherViewModel {
 
+    private String firstName;
+
+    private String lastName;
+
+    private Position position;
 }

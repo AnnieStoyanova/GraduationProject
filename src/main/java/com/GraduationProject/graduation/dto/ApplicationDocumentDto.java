@@ -3,19 +3,18 @@ package com.GraduationProject.graduation.dto;
 import com.GraduationProject.graduation.data.entity.Student;
 import com.GraduationProject.graduation.data.entity.Teacher;
 import jakarta.persistence.OneToOne;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 
+@EqualsAndHashCode
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class CreateApplicationDocumentDto {
+public class ApplicationDocumentDto {
 
+    private long id;
     private String theme;
     private String purpose;
     private String tasks;

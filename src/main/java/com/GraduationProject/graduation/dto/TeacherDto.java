@@ -1,16 +1,16 @@
 package com.GraduationProject.graduation.dto;
 
 import com.GraduationProject.graduation.data.entity.Position;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
+@EqualsAndHashCode
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class CreateTeacherDto {
+public class TeacherDto {
+
+    private long id;
 
     private String firstName;
 

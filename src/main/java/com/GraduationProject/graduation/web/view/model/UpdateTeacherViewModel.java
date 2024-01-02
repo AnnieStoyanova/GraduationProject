@@ -1,4 +1,4 @@
-package com.GraduationProject.graduation.dto;
+package com.GraduationProject.graduation.web.view.model;
 
 import com.GraduationProject.graduation.data.entity.Position;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class CreateTeacherDto {
+public class UpdateTeacherViewModel {
 
     private String firstName;
 

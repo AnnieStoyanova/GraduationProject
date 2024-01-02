@@ -1,22 +1,24 @@
-package com.GraduationProject.graduation.dto;
+package com.GraduationProject.graduation.web.view.model;
 
 import com.GraduationProject.graduation.data.entity.Student;
 import com.GraduationProject.graduation.data.entity.Teacher;
 import jakarta.persistence.OneToOne;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 
 import java.util.List;
 
+
+@EqualsAndHashCode
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class CreateApplicationDocumentDto {
+public class CreateApplicationViewModel {
 
+    @NotBlank
     private String theme;
+    @NotBlank
     private String purpose;
     private String tasks;
     private String technologies;

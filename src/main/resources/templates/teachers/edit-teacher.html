@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+<header th:replace="fragments :: header"></header>
+<h4>Register the teacher</h4>
+<div class="col-6">
+    <form action="#" th:action="@{/teachers/update/{id}(id=${id})}" th:object="${teacher}" method="post">
+        <div class="form-group">
+            <label for="firstName">First name</label>
+            <input class="form-control" type="text" th:field="*{firstName}" placeholder="First name" id="firstName">
+            <span class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</span>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input class="form-control" type="text" th:field="*{lastName}" placeholder="Name" id="lastName">
+            <span class="text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last name Error</span>
+        </div>
+        <div class="form-group">
+        <label for="position">Position</label>
+        <select class="form-control" th:field="${teacher.position}" id="position">
+            <option value="">Select Position</option>
+            <option th:each="position : ${T(com.GraduationProject.graduation.data.entity.Position).values()}"
+                    th:value="${position}" th:text="${position}"></option>
+        </select>
+    </div>
+        <button type="submit" class="btn btn-primary">Update teacher</button>
+    </form>
+</div>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

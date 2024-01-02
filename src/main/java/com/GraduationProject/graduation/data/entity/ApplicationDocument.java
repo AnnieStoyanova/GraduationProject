@@ -18,8 +18,8 @@ public class ApplicationDocument extends BaseEntity {
 
     private String theme;
     private String purpose;
-    private List<String> tasks;
-    private List<String> technologies;
+    private String tasks;
+    private String technologies;
     @OneToOne
     private Student student;
     @OneToOne
