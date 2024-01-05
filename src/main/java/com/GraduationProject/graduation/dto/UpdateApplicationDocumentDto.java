@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 public class UpdateApplicationDocumentDto {
+    private long id;
     private String theme;
     private String purpose;
     private String tasks;

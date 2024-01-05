@@ -18,12 +18,10 @@ import java.util.List;
 public class ThesisPresentation extends BaseEntity {
 
     @OneToMany
-    private List<Thesis> thesisList;
+    private List<PresentationInfo> presentationInfos;
     @OneToMany
-    private List<Teacher> commission;
-    private Date presentationDate;
-    @OneToMany
-    private List<PresentationInfo> results;
+    private List<Teacher> commission; // taksidjii??
+    private Date presentationDate; // localdate
 
 }
 

@@ -1,5 +1,6 @@
 package com.GraduationProject.graduation.data.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -20,9 +21,9 @@ public class ApplicationDocument extends BaseEntity {
     private String purpose;
     private String tasks;
     private String technologies;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Student student;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Teacher teacherLeader;
     private Boolean isApproved;
 

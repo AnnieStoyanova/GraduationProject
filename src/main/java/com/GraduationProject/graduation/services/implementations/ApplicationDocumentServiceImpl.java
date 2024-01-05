@@ -5,6 +5,8 @@ import com.GraduationProject.graduation.data.entity.Student;
 import com.GraduationProject.graduation.data.repository.ApplicationDocumentRepository;
 import com.GraduationProject.graduation.dto.*;
 import com.GraduationProject.graduation.services.ApplicationDocumentService;
+import com.GraduationProject.graduation.services.StudentService;
+import com.GraduationProject.graduation.services.TeacherService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,10 @@ import java.util.stream.Collectors;
 public class ApplicationDocumentServiceImpl implements ApplicationDocumentService {
 
     private final ApplicationDocumentRepository applicationDocumentRepository;
+
+    private final StudentService studentService;
+
+    private final TeacherService teacherService;
 
     private final ModelMapper modelMapper;
 
@@ -56,6 +62,15 @@ public class ApplicationDocumentServiceImpl implements ApplicationDocumentServic
     public void deleteApplication(long id) {
         applicationDocumentRepository.deleteById(id);
     }
+
+    @Override
+    public List<StudentDto> getApplicationStudents() {
+        return studentService.getStudents();
+    }
+
+    @Override
+    public List<TeacherDto> getApplicationTeachers() { return teacherService.getTeachers();}
+
 
     private ApplicationDocumentDto convertToApplicationDto(ApplicationDocument applicationDocument) {
         return modelMapper.map(applicationDocument, ApplicationDocumentDto.class);

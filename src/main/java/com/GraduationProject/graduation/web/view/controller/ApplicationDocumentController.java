@@ -24,7 +24,7 @@ public class ApplicationDocumentController {
 
 
     @GetMapping
-    private String getStudents(Model model) {
+    private String getApplications(Model model) {
         final List<ApplicationViewModel> applications =
                 applicationDocumentService.getApplications().stream()
                         .map(this::convertToApplicationViewModel)
@@ -36,6 +36,8 @@ public class ApplicationDocumentController {
     @GetMapping("/create-application")
     public String showCreateApplicationForm(Model model) {
         model.addAttribute("applicationDocument", new CreateApplicationViewModel());
+        model.addAttribute("students", applicationDocumentService.getApplicationStudents());
+        model.addAttribute("teachers", applicationDocumentService.getApplicationTeachers());
         return "/applications/create-application";
     }
 
@@ -53,6 +55,8 @@ public class ApplicationDocumentController {
     public String showEditApplicationForm(Model model, @PathVariable Long id) {
         model.addAttribute("applicationDocument", modelMapper.map(applicationDocumentService.getApplicationById(id),
                 UpdateApplicationViewModel.class));
+        model.addAttribute("students", applicationDocumentService.getApplicationStudents());
+        model.addAttribute("teachers", applicationDocumentService.getApplicationTeachers());
         return "/applications/edit-application";
     }
 

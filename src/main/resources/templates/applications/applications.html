@@ -23,11 +23,10 @@
             <td th:text="${applicationDocument.purpose}"></td>
             <td th:text="${applicationDocument.tasks}"></td>
             <td th:text="${applicationDocument.technologies}"></td>
-            <td th:text="${applicationDocument.student}"></td>
-            <td th:text="${applicationDocument.teacherLeader}"></td>
-            <td th:text="${applicationDocument.isApproved}"></td>
-<!--            <td><a class="btn btn-info" th:href="@{'/applications/edit-application/'+${application.id}}">Edit</a></td>-->
-<!--            <td><a class="btn btn-danger" th:href="@{'/applications/delete/'+${application.id}}">Delete</a></td>-->
+            <td th:text="${applicationDocument.student.firstName + ' ' + applicationDocument.student.lastName}"></td>
+            <td th:text="${applicationDocument.teacherLeader.firstName + ' ' + applicationDocument.teacherLeader.lastName}"></td>            <td th:text="${applicationDocument.isApproved}"></td>
+            <td><a class="btn btn-info" th:href="@{'/applications/edit-application/' + ${applicationDocument.id}}">Edit</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/applications/delete/'+${applicationDocument.id}}">Delete</a></td>
         </tr>
     </table>
 </div>

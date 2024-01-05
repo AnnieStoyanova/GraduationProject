@@ -15,4 +15,8 @@ public interface ApplicationDocumentService {
     UpdateApplicationDocumentDto updateApplication(long id, UpdateApplicationDocumentDto updateApplicationDocumentDto);
 
     void deleteApplication(long id);
+
+    List<StudentDto> getApplicationStudents();
+
+    List<TeacherDto> getApplicationTeachers();
 }
