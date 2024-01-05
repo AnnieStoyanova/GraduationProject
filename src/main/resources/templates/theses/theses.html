@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+<header th:replace="fragments :: header"></header>
+<h4 th:if="${theses.size()>0}" th:text="'Theses: ' + ${theses.size()}"> </h4>
+<div class=" col-6">
+    <h3 th:unless="${theses} and ${theses.size()}">There are no theses!</h3>
+    <table th:if="${theses.size()>0}" class="table table-hover">
+        <th>Id</th>
+        <th>Title</th>
+        <th>Text</th>
+        <th>Upload Date</th>
+        <th>Application</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <tr th:each="thesis : ${theses}">
+            <td th:text="${thesis.id}"></td>
+            <td th:text="${thesis.title}"></td>
+            <td th:text="${thesis.text}"></td>
+            <td th:text="${thesis.uploadDate}"></td>
+            <td th:text="${thesis.applicationDocument.theme}"></td>
+            <td><a class="btn btn-info" th:href="@{'/theses/edit-thesis/'+${thesis.id}}">Edit</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/theses/delete/'+${thesis.id}}">Delete</a></td>
+        </tr>
+    </table>
+</div>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

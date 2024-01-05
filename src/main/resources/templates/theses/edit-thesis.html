@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+<header th:replace="fragments :: header"></header>
+<h4>Register the thesis</h4>
+<div class="col-6">
+    <form action="#" th:action="@{/theses/update/{id}(id=${id})}" th:object="${thesis}" method="post">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" th:field="*{title}" placeholder="Title" id="title">
+            <span class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</span>
+        </div>
+        <div class="form-group">
+            <label for="text">Text</label>
+            <input class="form-control" type="text" th:field="*{text}" placeholder="Text" id="text">
+            <span class="text-danger" th:if="${#fields.hasErrors('text')}" th:errors="*{text}">Text Error</span>
+        </div>
+        <div class="form-group">
+            <label for="uploadDate">Upload Date</label>
+            <input class="form-control" type="text" th:field="*{uploadDate}" placeholder="Upload date" id="uploadDate">
+            <span class="text-danger" th:if="${#fields.hasErrors('uploadDate')}" th:errors="*{text}">Upload Date Error</span>
+        </div>
+        <div class="form-group">
+        <label for="applicationDocument">Application Document</label>
+        <select class="form-control" th:field="${thesis.applicationDocument}" id="applicationDocument">
+            <option value="">Select Application</option>
+            <option th:each="applicationDocument : ${applicationDocuments}" th:value="${applicationDocument.id}"
+                    th:text="${applicationDocument.theme}"></option>
+        </select>
+    </div>
+        <button type="submit" class="btn btn-primary">Update thesis</button>
+    </form>
+</div>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

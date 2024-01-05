@@ -55,8 +55,11 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests
                         (authz -> authz
-                                .requestMatchers(HttpMethod.GET, "/students").hasAuthority("ADMIN")
-                                .requestMatchers("/api/v1/schools/**").hasAuthority("ADMIN")
+                                // Преподавателите в системата могат да обработват данните в нея
+                                //.requestMatchers("/students/**").hasAuthority("TEACHER")
+                                //.requestMatchers("/students/**").hasAuthority("ADMIN")
+                                //.requestMatchers(HttpMethod.GET,"/students").hasAuthority("STUDENT")
+                                // Студентите качват единствено дипломната работа TODO:
                                 .anyRequest().authenticated()
                         )
                 .httpBasic(Customizer.withDefaults())

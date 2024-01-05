@@ -1,18 +1,18 @@
-package com.GraduationProject.graduation.dto;
+package com.GraduationProject.graduation.web.view.model;
 
 import com.GraduationProject.graduation.data.entity.ApplicationDocument;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Date;
 
-
-@EqualsAndHashCode
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class UpdateThesisDto {
+public class UpdateThesisViewModel {
 
     private String title;
     private String text;

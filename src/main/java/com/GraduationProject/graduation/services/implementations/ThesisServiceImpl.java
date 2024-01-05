@@ -4,6 +4,7 @@ import com.GraduationProject.graduation.data.entity.Student;
 import com.GraduationProject.graduation.data.entity.Thesis;
 import com.GraduationProject.graduation.data.repository.ThesisRepository;
 import com.GraduationProject.graduation.dto.*;
+import com.GraduationProject.graduation.services.ApplicationDocumentService;
 import com.GraduationProject.graduation.services.ThesisService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -18,9 +19,11 @@ public class ThesisServiceImpl implements ThesisService {
 
     private final ThesisRepository thesisRepository;
 
+    private ApplicationDocumentService applicationDocumentService;
+
     private final ModelMapper modelMapper;
     @Override
-    public List<ThesisDto> getThesises() {
+    public List<ThesisDto> getTheses() {
         return thesisRepository.findAll().stream()
                 .map(this::convertToThesisDto)
                 .collect(Collectors.toList());
@@ -44,12 +47,18 @@ public class ThesisServiceImpl implements ThesisService {
         thesis.setText(updateThesisDto.getText());
         thesis.setTitle(updateThesisDto.getTitle());
         thesis.setApplicationDocument(updateThesisDto.getApplicationDocument());
+        thesis.setUploadDate(updateThesisDto.getUploadDate());
         return modelMapper.map(thesisRepository.save(thesis), UpdateThesisDto.class);
     }
 
     @Override
     public void deleteThesis(long id) {
         thesisRepository.deleteById(id);
+    }
+
+    @Override
+    public List<ApplicationDocumentDto> getThesisApplications() {
+        return applicationDocumentService.getApplications();
     }
 
     private ThesisDto convertToThesisDto(Thesis thesis) {
