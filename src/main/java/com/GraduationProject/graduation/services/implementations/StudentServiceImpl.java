@@ -4,10 +4,11 @@ import com.GraduationProject.graduation.data.entity.Student;
 import com.GraduationProject.graduation.data.repository.StudentRepository;
 import com.GraduationProject.graduation.dto.CreateStudentDto;
 import com.GraduationProject.graduation.dto.StudentDto;
-import com.GraduationProject.graduation.dto.UpdateStudentDTO;
+import com.GraduationProject.graduation.dto.UpdateStudentDto;
 import com.GraduationProject.graduation.services.StudentService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 
@@ -43,20 +44,19 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public UpdateStudentDTO updateStudent(long id, UpdateStudentDTO updateStudentDto) {
+    public UpdateStudentDto updateStudent(long id, UpdateStudentDto updateStudentDto) {
         Student student = modelMapper.map(getStudentById(id), Student.class);
         student.setFirstName(updateStudentDto.getFirstName());
         student.setLastName(updateStudentDto.getLastName());
         student.setFacultyNumber(updateStudentDto.getFacultyNumber());
         student.setGraduationClass(updateStudentDto.getGraduationClass());
-        return modelMapper.map(studentRepository.save(student), UpdateStudentDTO.class);
+        return modelMapper.map(studentRepository.save(student), UpdateStudentDto.class);
     }
 
     @Override
     public void deleteStudent(long id) {
         studentRepository.deleteById(id);
     }
-
 
     private StudentDto convertToStudentDto(Student student) {
         return modelMapper.map(student, StudentDto.class);

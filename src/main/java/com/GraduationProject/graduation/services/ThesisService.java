@@ -15,7 +15,7 @@ public interface ThesisService {
 
     CreateThesisDto createThesis(CreateThesisDto createThesisDto);
 
-    UpdateThesisDto updateThesis(long id, UpdateThesisDto updateThesisDto );
+    UpdateThesisDto updateThesis(long id, UpdateThesisDto updateThesisDto);
 
     void deleteThesis(long id);
 

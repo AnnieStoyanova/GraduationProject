@@ -19,4 +19,6 @@ public interface ApplicationDocumentService {
     List<StudentDto> getApplicationStudents();
 
     List<TeacherDto> getApplicationTeachers();
+
+    List<ApplicationDocumentDto> findAllByIsApprovedIsTrue();
 }

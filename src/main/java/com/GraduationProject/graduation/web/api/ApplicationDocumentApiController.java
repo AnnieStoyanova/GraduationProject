@@ -33,5 +33,10 @@ public class ApplicationDocumentApiController {
         return this.applicationDocumentService.getApplicationById(id);
     }
 
+    @GetMapping("/only-approved")
+    public List<ApplicationDocumentDto> getAllApprovedApplications() {
+        return this.applicationDocumentService.findAllByIsApprovedIsTrue();
+    }
+
 
 }

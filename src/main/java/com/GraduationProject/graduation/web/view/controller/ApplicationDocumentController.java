@@ -76,6 +76,16 @@ public class ApplicationDocumentController {
         return "redirect:/applications";
     }
 
+    @GetMapping("/only-approved")
+    public String getAllApprovedApplications(Model model) {
+        final List<ApplicationViewModel> applications =
+                applicationDocumentService.findAllByIsApprovedIsTrue().stream()
+                        .map(this::convertToApplicationViewModel)
+                        .collect(Collectors.toList());
+        model.addAttribute("approvedApplications", applications);
+        return "/applications/only-approved";
+    }
+
     private ApplicationViewModel convertToApplicationViewModel(ApplicationDocumentDto applicationDocumentDto) {
         return modelMapper.map(applicationDocumentDto, ApplicationViewModel.class);
     }

@@ -66,6 +66,8 @@ public class ThesisController {
     public String updateThesis(@PathVariable long id, @Valid @ModelAttribute("thesis") UpdateThesisViewModel thesis,
                                 BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
+            System.out.println("Binding result has errors ----------------------------------------------------------------");
+            System.out.println(bindingResult.getAllErrors());
             return "/theses/edit-thesis";
         }
         thesisService.updateThesis(id, modelMapper.map(thesis, UpdateThesisDto.class));

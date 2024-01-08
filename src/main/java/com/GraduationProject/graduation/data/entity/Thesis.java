@@ -6,8 +6,9 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -18,7 +19,8 @@ public class Thesis extends BaseEntity {
 
     private String title;
     private String text;
-    private Date uploadDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate uploadDate;
     @OneToOne
     private ApplicationDocument applicationDocument;
 }

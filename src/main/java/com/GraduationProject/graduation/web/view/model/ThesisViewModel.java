@@ -3,7 +3,7 @@ package com.GraduationProject.graduation.web.view.model;
 import com.GraduationProject.graduation.data.entity.ApplicationDocument;
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @EqualsAndHashCode
 @Getter
@@ -15,6 +15,6 @@ public class ThesisViewModel {
     private long id;
     private String title;
     private String text;
-    private Date uploadDate;
+    private LocalDate uploadDate;
     private ApplicationDocument applicationDocument;
 }

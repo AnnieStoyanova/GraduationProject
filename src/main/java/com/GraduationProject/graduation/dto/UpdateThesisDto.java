@@ -3,7 +3,7 @@ package com.GraduationProject.graduation.dto;
 import com.GraduationProject.graduation.data.entity.ApplicationDocument;
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 
 @EqualsAndHashCode
@@ -16,6 +16,6 @@ public class UpdateThesisDto {
 
     private String title;
     private String text;
-    private Date uploadDate;
+    private LocalDate uploadDate;
     private ApplicationDocument applicationDocument;
 }

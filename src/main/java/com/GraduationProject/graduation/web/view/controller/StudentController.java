@@ -3,7 +3,7 @@ package com.GraduationProject.graduation.web.view.controller;
 import org.springframework.ui.Model;
 import com.GraduationProject.graduation.dto.CreateStudentDto;
 import com.GraduationProject.graduation.dto.StudentDto;
-import com.GraduationProject.graduation.dto.UpdateStudentDTO;
+import com.GraduationProject.graduation.dto.UpdateStudentDto;
 import com.GraduationProject.graduation.services.StudentService;
 import com.GraduationProject.graduation.web.view.model.CreateStudentViewModel;
 import com.GraduationProject.graduation.web.view.model.StudentViewModel;
@@ -67,7 +67,7 @@ public class StudentController {
         if (bindingResult.hasErrors()) {
             return "/students/edit-student";
         }
-        studentService.updateStudent(id, modelMapper.map(student, UpdateStudentDTO.class));
+        studentService.updateStudent(id, modelMapper.map(student, UpdateStudentDto.class));
         return "redirect:/students";
     }
 

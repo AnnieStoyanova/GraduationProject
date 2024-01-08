@@ -6,8 +6,9 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -20,8 +21,9 @@ public class ThesisPresentation extends BaseEntity {
     @OneToMany
     private List<PresentationInfo> presentationInfos;
     @OneToMany
-    private List<Teacher> commission; // taksidjii??
-    private Date presentationDate; // localdate
+    private List<Teacher> commission;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate presentationDate;
 
 }
 

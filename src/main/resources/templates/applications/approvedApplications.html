@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+<header th:replace="fragments :: header"></header>
+<h4 th:if="${approvedApplications.size()>0}" th:text="'approvedApplications: ' + ${approvedApplications.size()}"> </h4>
+<div class=" col-6">
+    <h3 th:unless="${approvedApplications} and ${approvedApplications.size()}">There are no approved Applications!</h3>
+    <table th:if="${approvedApplications.size()>0}" class="table table-hover">
+        <th>Id</th>
+        <th>Theme</th>
+        <th>Purpose</th>
+        <th>Tasks</th>
+        <th>Technologies</th>
+        <th>Student</th>
+        <th>Teacher</th>
+        <th>Approved</th>
+        <tr th:each="applicationDocument : ${approvedApplications}">
+            <td th:text="${applicationDocument.id}"></td>
+            <td th:text="${applicationDocument.theme}"></td>
+            <td th:text="${applicationDocument.purpose}"></td>
+            <td th:text="${applicationDocument.tasks}"></td>
+            <td th:text="${applicationDocument.technologies}"></td>
+            <td th:text="${applicationDocument.student.firstName + ' ' + applicationDocument.student.lastName}"></td>
+            <td th:text="${applicationDocument.teacherLeader.firstName + ' ' + applicationDocument.teacherLeader.lastName}"></td>            <td th:text="${applicationDocument.isApproved}"></td>
+        </tr>
+    </table>
+</div>
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

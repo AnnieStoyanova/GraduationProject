@@ -1,7 +1,6 @@
 package com.GraduationProject.graduation.services.implementations;
 
 import com.GraduationProject.graduation.data.entity.ApplicationDocument;
-import com.GraduationProject.graduation.data.entity.Student;
 import com.GraduationProject.graduation.data.repository.ApplicationDocumentRepository;
 import com.GraduationProject.graduation.dto.*;
 import com.GraduationProject.graduation.services.ApplicationDocumentService;
@@ -72,6 +71,12 @@ public class ApplicationDocumentServiceImpl implements ApplicationDocumentServic
     public List<TeacherDto> getApplicationTeachers() { return teacherService.getTeachers();}
 
 
+    @Override
+    public List<ApplicationDocumentDto> findAllByIsApprovedIsTrue() {
+        return applicationDocumentRepository.findAllByIsApprovedIsTrue().stream()
+                .map(this::convertToApplicationDto)
+                .collect(Collectors.toList());
+    }
     private ApplicationDocumentDto convertToApplicationDto(ApplicationDocument applicationDocument) {
         return modelMapper.map(applicationDocument, ApplicationDocumentDto.class);
     }

@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class UpdateStudentDTO {
+public class UpdateStudentDto {
     private String firstName;
     private String lastName;
     private String facultyNumber;
