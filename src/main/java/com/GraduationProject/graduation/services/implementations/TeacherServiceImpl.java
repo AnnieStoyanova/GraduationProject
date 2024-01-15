@@ -3,7 +3,6 @@ package com.GraduationProject.graduation.services.implementations;
 import com.GraduationProject.graduation.data.entity.Teacher;
 import com.GraduationProject.graduation.data.repository.TeacherRepository;
 import com.GraduationProject.graduation.dto.*;
-import com.GraduationProject.graduation.exceptions.StudentNotFoundException;
 import com.GraduationProject.graduation.exceptions.TeacherNotFoundException;
 import com.GraduationProject.graduation.services.TeacherService;
 import lombok.AllArgsConstructor;
