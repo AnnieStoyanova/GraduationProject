@@ -11,4 +11,6 @@ public interface ThesisPresentationService {
 
     ThesisPresentationDto getThesisPresentationById(long id);
     List<ThesisPresentationDto> getPresentationsInPeriodWithGradeNot2(LocalDate startDate, LocalDate endDate);
+//    long countPresentationInfosByPresentationDateBetween(LocalDate startDate, LocalDate endDate);
+
 }

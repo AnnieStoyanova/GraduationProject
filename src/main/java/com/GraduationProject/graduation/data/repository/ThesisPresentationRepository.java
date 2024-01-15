@@ -9,4 +9,10 @@ public interface ThesisPresentationRepository extends JpaRepository<ThesisPresen
 
     List<ThesisPresentation> findByPresentationDateBetweenAndPresentationInfos_GradeNot(
             LocalDate startDate, LocalDate endDate, Double grade);
+
+
+    // not working:
+   long countPresentationInfosByPresentationDateBetween(LocalDate startDate, LocalDate endDate);
+
+
 }

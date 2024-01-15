@@ -2,7 +2,6 @@ package com.GraduationProject.graduation.web.api;
 
 import com.GraduationProject.graduation.dto.ThesisPresentationDto;
 import com.GraduationProject.graduation.services.ThesisPresentationService;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +27,12 @@ public class ThesisPresentationApiController {
         return this.thesisPresentationService.getPresentationsInPeriodWithGradeNot2(startDate,endDate);
 
     }
+
+//    @GetMapping("/count-between/{startDate}/and/{endDate}")
+//    public long countAllThesesPresentationsBetween(
+//            @PathVariable LocalDate startDate, @PathVariable LocalDate endDate) {
+//        return this.thesisPresentationService.countPresentationInfosByPresentationDateBetween(startDate, endDate);
+//    }
 
 
 }

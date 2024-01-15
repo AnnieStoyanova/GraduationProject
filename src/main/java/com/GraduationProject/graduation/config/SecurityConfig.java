@@ -53,6 +53,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+
         http.authorizeHttpRequests
                         (authz -> authz
                                 // Преподавателите в системата могат да обработват данните в нея
@@ -61,6 +62,7 @@ public class SecurityConfig {
                                 //.requestMatchers(HttpMethod.GET,"/students").hasAuthority("STUDENT")
                                 // Студентите качват единствено дипломната работа TODO:
                                 .anyRequest().authenticated()
+                                 //.anyRequest().permitAll()
                         )
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults())

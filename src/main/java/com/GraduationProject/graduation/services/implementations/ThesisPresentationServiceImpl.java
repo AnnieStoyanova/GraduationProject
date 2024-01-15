@@ -45,6 +45,11 @@ public class ThesisPresentationServiceImpl implements ThesisPresentationService 
                 .collect(Collectors.toList());
     }
 
+//    @Override
+//    public long countPresentationInfosByPresentationDateBetween(LocalDate startDate, LocalDate endDate) {
+//        return thesisPresentationRepository.countPresentationInfosByPresentationDateBetween(startDate, endDate);
+//    }
+
 
     private ThesisPresentationDto convertToThesisPresentationDto(ThesisPresentation thesisPresentation) {
         return modelMapper.map(thesisPresentation, ThesisPresentationDto.class);
