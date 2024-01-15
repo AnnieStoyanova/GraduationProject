@@ -3,6 +3,8 @@ package com.GraduationProject.graduation.services.implementations;
 import com.GraduationProject.graduation.data.entity.Teacher;
 import com.GraduationProject.graduation.data.repository.TeacherRepository;
 import com.GraduationProject.graduation.dto.*;
+import com.GraduationProject.graduation.exceptions.StudentNotFoundException;
+import com.GraduationProject.graduation.exceptions.TeacherNotFoundException;
 import com.GraduationProject.graduation.services.TeacherService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -28,7 +30,9 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public TeacherDto getTeacherById(long id) {
-        return modelMapper.map(teacherRepository.findById(id), TeacherDto.class);
+        return modelMapper.map(teacherRepository.findById(id)
+                .orElseThrow(() -> new TeacherNotFoundException("Invalid teacher Id:" + id)), TeacherDto.class);
+
     }
 
     @Override

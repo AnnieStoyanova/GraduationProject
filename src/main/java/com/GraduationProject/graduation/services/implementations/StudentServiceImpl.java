@@ -5,10 +5,10 @@ import com.GraduationProject.graduation.data.repository.StudentRepository;
 import com.GraduationProject.graduation.dto.CreateStudentDto;
 import com.GraduationProject.graduation.dto.StudentDto;
 import com.GraduationProject.graduation.dto.UpdateStudentDto;
+import com.GraduationProject.graduation.exceptions.StudentNotFoundException;
 import com.GraduationProject.graduation.services.StudentService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 
@@ -33,7 +33,8 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public StudentDto getStudentById(long id) {
-        return modelMapper.map(studentRepository.findById(id), StudentDto.class);
+        return modelMapper.map(studentRepository.findById(id)
+                .orElseThrow(() -> new StudentNotFoundException("Invalid student Id:" + id)), StudentDto.class);
     }
 
     @Override

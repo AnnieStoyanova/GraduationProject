@@ -38,5 +38,16 @@ public class ApplicationDocumentApiController {
         return this.applicationDocumentService.findAllByIsApprovedIsTrue();
     }
 
+    @GetMapping("/contain/{substringTheme}")
+    public List<ApplicationDocumentDto> getAllContainingSubstringInTheme(@PathVariable String substringTheme) {
+        return this.applicationDocumentService.findAllByThemeContainingOrderByTheme(substringTheme);
+    }
+
+    @GetMapping("/byTeacher/{id}/only-approved")
+    public List<ApplicationDocumentDto> getAllApprovedApplicationsLeadingTeacherIs(
+            @PathVariable long id) {
+        return this.applicationDocumentService.findByTeacherLeaderIdAndIsApprovedTrue(id);
+    }
+
 
 }

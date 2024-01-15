@@ -3,6 +3,7 @@ package com.GraduationProject.graduation.services.implementations;
 import com.GraduationProject.graduation.data.entity.ApplicationDocument;
 import com.GraduationProject.graduation.data.repository.ApplicationDocumentRepository;
 import com.GraduationProject.graduation.dto.*;
+import com.GraduationProject.graduation.exceptions.ApplicationDocumentNotFoundException;
 import com.GraduationProject.graduation.services.ApplicationDocumentService;
 import com.GraduationProject.graduation.services.StudentService;
 import com.GraduationProject.graduation.services.TeacherService;
@@ -34,7 +35,8 @@ public class ApplicationDocumentServiceImpl implements ApplicationDocumentServic
 
     @Override
     public ApplicationDocumentDto getApplicationById(long id) {
-        return modelMapper.map(applicationDocumentRepository.findById(id), ApplicationDocumentDto.class);
+        return modelMapper.map(applicationDocumentRepository.findById(id)
+                .orElseThrow(() -> new ApplicationDocumentNotFoundException("Invalid application document Id:" + id)), ApplicationDocumentDto.class);
     }
 
     @Override
@@ -77,6 +79,23 @@ public class ApplicationDocumentServiceImpl implements ApplicationDocumentServic
                 .map(this::convertToApplicationDto)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<ApplicationDocumentDto> findAllByThemeContainingOrderByTheme(String substringTheme) {
+        return applicationDocumentRepository.findAllByThemeContainingOrderByTheme(substringTheme).stream()
+                .map(this::convertToApplicationDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ApplicationDocumentDto> findByTeacherLeaderIdAndIsApprovedTrue(Long teacherId) {
+        return applicationDocumentRepository.findByTeacherLeaderIdAndIsApprovedTrue(teacherId)
+                .stream()
+                .map(this::convertToApplicationDto)
+                .collect(Collectors.toList());
+    }
+
+
     private ApplicationDocumentDto convertToApplicationDto(ApplicationDocument applicationDocument) {
         return modelMapper.map(applicationDocument, ApplicationDocumentDto.class);
     }
